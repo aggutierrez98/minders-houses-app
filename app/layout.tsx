@@ -25,9 +25,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >
-        {children}
+        <nav className="bg-[hsl(var(--magic-blue))] p-4">
+          <div className="container mx-auto">
+            {/* <Link
+              href="/"
+              className="text-xl font-bold text-foreground hover:text-[hsl(var(--hufflepuff-primary))] transition-colors"
+            >
+              Harry Potter Houses
+            </Link> */}
+          </div>
+        </nav>
+        <main>{children}</main>
       </body>
     </html>
   );
