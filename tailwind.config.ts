@@ -6,7 +6,9 @@ export default {
 	content: [
 		"./pages/**/*.{js,ts,jsx,tsx,mdx}",
 		"./components/**/*.{js,ts,jsx,tsx,mdx}",
+		"./hooks/**/*.{js,ts,jsx,tsx,mdx}",
 		"./app/**/*.{js,ts,jsx,tsx,mdx}",
+		"./lib/**/*.{js,ts,jsx,tsx,mdx}",
 	],
 	theme: {
 		extend: {
@@ -29,26 +31,25 @@ export default {
 					DEFAULT: 'hsl(var(--secondary))',
 					foreground: 'hsl(var(--secondary-foreground))'
 				},
-				// Custom Harry Potter colors
 				gryffindor: {
-					primary: 'hsla(var(--gryffindor-primary))',
-					secondary: 'hsla(var(--gryffindor-secondary))',
+					primary: 'hsl(var(--gryffindor-primary))',
+					secondary: 'hsl(var(--gryffindor-secondary))'
 				},
 				slytherin: {
-					primary: 'hsla(var(--slytherin-primary))',
-					secondary: 'hsla(var(--slytherin-secondary))',
+					primary: 'hsl(var(--slytherin-primary))',
+					secondary: 'hsl(var(--slytherin-secondary))'
 				},
 				ravenclaw: {
-					primary: 'hsla(var(--ravenclaw-primary))',
-					secondary: 'hsla(var(--ravenclaw-secondary))',
+					primary: 'hsl(var(--ravenclaw-primary))',
+					secondary: 'hsl(var(--ravenclaw-secondary))'
 				},
 				hufflepuff: {
-					primary: 'hsla(var(--hufflepuff-primary))',
-					secondary: 'hsla(var(--hufflepuff-secondary))',
+					primary: 'hsl(var(--hufflepuff-primary))',
+					secondary: 'hsl(var(--hufflepuff-secondary))'
 				},
 				magic: {
-					blue: 'hsla(var(--magic-blue))',
-					purple: 'text-foreground',
+					blue: 'hsl(var(--magic-blue))',
+					purple: 'hsl(var(--magic-purple))'
 				},
 				muted: {
 					DEFAULT: 'hsl(var(--muted))',
@@ -80,5 +81,5 @@ export default {
 			}
 		}
 	},
-	plugins: [CssAnimate],
+	plugins: [CssAnimate, require("tailwindcss-animate")],
 } satisfies Config;

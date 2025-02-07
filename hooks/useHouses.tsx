@@ -1,28 +1,24 @@
+import { getHouses } from "@/app/services/houses";
 import { House } from "@/lib/types/houses";
 import { useEffect, useState } from "react";
 
 export const useHouses = () => {
   const [houses, setHouses] = useState<House[]>([]);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const getHouses = async () => {
-      const res = await fetch(`https://wizard-world-api.herokuapp.com/Houses`);
-      const houses: House[] = await res.json();
-      return houses;
-    };
-
     getHouses()
-      .then((houses) => {
-        setHouses(houses);
+      .then(({ data, message }) => {
+        if (message) setError(message);
+        setHouses(data || []);
       })
-      .catch((error) => {
-        console.log(error);
-        setError(error.message);
+      .finally(() => {
+        setLoading(false);
       });
 
     return () => {};
   }, []);
 
-  return { houses, error };
+  return { houses, error, loading };
 };

@@ -1,16 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import { geistMono, geistSans } from "./fonts";
+import AmplitudeContextProvider from "@/components/context/AmplitudeContext";
+import { AuthProvider } from "@/components/context/AuthContext";
+import { NavBar } from "@/components/NavBar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,21 +17,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
+        className={`${geistSans.className} ${geistMono.className} antialiased bg-background text-foreground`}
       >
-        <nav className="bg-[hsl(var(--magic-blue))] p-4">
-          <div className="container mx-auto">
-            {/* <Link
-              href="/"
-              className="text-xl font-bold text-foreground hover:text-[hsl(var(--hufflepuff-primary))] transition-colors"
+        <AmplitudeContextProvider>
+          <AuthProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
             >
-              Harry Potter Houses
-            </Link> */}
-          </div>
-        </nav>
-        <main>{children}</main>
+              <NavBar />
+              <main>{children}</main>
+            </ThemeProvider>
+          </AuthProvider>
+        </AmplitudeContextProvider>
       </body>
     </html>
   );

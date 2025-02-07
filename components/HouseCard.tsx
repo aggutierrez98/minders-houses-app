@@ -1,40 +1,40 @@
+"use client";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
-import useAmplitudeContext from "@/hooks/useAmplitudeContext";
+import useAmplitude from "@/hooks/useAmplitude";
 import { houseColors } from "@/lib/constants/houseColors";
 import { House } from "@/lib/types/houses";
 import Link from "next/link";
+import { Button } from "./ui/button";
 
 interface HouseCardProps {
   house: House;
 }
 
 export default function HouseCard({ house }: HouseCardProps) {
-  const { trackAmplitudeEvent } = useAmplitudeContext();
-  const { bg, text } = houseColors[house.name] || houseColors.Default;
+  const { trackAmplitudeEvent } = useAmplitude();
+  const { bg } = houseColors[house.name] || houseColors.Default;
 
-  console.log({ HouseName: house.name, colorsObj: houseColors[house.name] });
   return (
-    <Card key={house.id} className="hover:shadow-lg transition">
-      <CardContent
-        // className={`shadow-md rounded-lg p-6 text-foreground ${bg} bg-ravenclaw-primary`}
-        className={`shadow-md rounded-lg p-6 text-foreground ${bg}`}
-      >
-        <CardTitle className={`text-4xl font-bold mb-6 ${text}`}>
+    <Card key={house.id} className={`hover:shadow-lg transition ${bg}`}>
+      <CardContent className={`shadow-md rounded-lg p-6 text-foreground `}>
+        <CardTitle className={`text-4xl font-bold mb-6 text-white`}>
           {house.name}
         </CardTitle>
-        <p className="text-gray-600 mt-2">Fundador: {house.founder}</p>
-        <Link
-          onClick={() => {
-            trackAmplitudeEvent("click", {
-              // event_type: "Link click"
-              text: `Click on link in house ${house.id}`,
-            });
-          }}
-          href={`/house/${house.id}`}
-          className="text-blue-600 mt-4 block"
-        >
-          Ver detalles
-        </Link>
+        <p className="text-secondary mt-2">Founder: {house.founder}</p>
+        <Button variant={"link"} className="p-0 mt-4">
+          <Link
+            onClick={() => {
+              trackAmplitudeEvent(
+                { event_type: `LinkClick on House: ${house.id}` },
+                {}
+              );
+            }}
+            href={`/house/${house.id}`}
+            className="text-blue-500 block p-0"
+          >
+            View details
+          </Link>
+        </Button>
       </CardContent>
     </Card>
   );
