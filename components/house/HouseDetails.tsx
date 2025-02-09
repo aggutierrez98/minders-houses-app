@@ -3,8 +3,8 @@ import type { House } from "@/lib/types/houses";
 // import { Card, CardContent, CardTitle } from "./ui/card";
 import { houseColors } from "@/lib/constants/houseColors";
 import { ArrowLeft } from "lucide-react";
-import { Button } from "./ui/button";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 interface HouseDetailsCardProps {
   house: House;
 }

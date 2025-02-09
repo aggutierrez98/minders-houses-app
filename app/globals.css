@@ -74,17 +74,17 @@ body {
   --chart-4: 280 65% 60%;
   --chart-5: 340 75% 55%;
 
-    /* Custom Harry Potter colors */
-    --gryffindor-primary: 0 78% 45%;
-    --gryffindor-secondary: 45 100% 50%;
-    --slytherin-primary: 152 95% 40%;
-    --slytherin-secondary: 0 0% 59%;
-    --ravenclaw-primary: 225 63% 50%;
-    --ravenclaw-secondary: 35 55% 60%;
-    --hufflepuff-primary: 45 100% 50%;
-    --hufflepuff-secondary: 24 33% 38%;
-    --magic-blue: 217 59% 39%;
-    --magic-purple: 275 100% 36%;
+  /* Custom Harry Potter colors */
+  --gryffindor-primary: 0 78% 45%;
+  --gryffindor-secondary: 45 100% 50%;
+  --slytherin-primary: 152 95% 40%;
+  --slytherin-secondary: 0 0% 59%;
+  --ravenclaw-primary: 225 63% 35%;
+  --ravenclaw-secondary: 35 55% 60%;
+  --hufflepuff-primary: 45 100% 50%;
+  --hufflepuff-secondary: 24 33% 38%;
+  --magic-blue: 217 59% 39%;
+  --magic-purple: 275 100% 36%;
 }
 
 }

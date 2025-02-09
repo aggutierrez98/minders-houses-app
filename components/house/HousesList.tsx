@@ -1,4 +1,4 @@
-import { getHouses } from "@/app/services/houses";
+import { getHouses } from "@/services/houses";
 import HouseCard from "./HouseCard";
 import { House } from "@/lib/types/houses";
 
@@ -9,7 +9,7 @@ export const HousesList = async () => {
     <>
       {message ? (
         <h3 className="text-lg text-red-500">
-          Error loading messages: {message}
+          Error loading houses: {message}
         </h3>
       ) : (
         (data as House[]).map((house) => (

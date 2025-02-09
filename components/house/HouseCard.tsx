@@ -4,7 +4,7 @@ import useAmplitude from "@/hooks/useAmplitude";
 import { houseColors } from "@/lib/constants/houseColors";
 import { House } from "@/lib/types/houses";
 import Link from "next/link";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 interface HouseCardProps {
   house: House;
@@ -29,7 +29,7 @@ export default function HouseCard({ house }: HouseCardProps) {
                 {}
               );
             }}
-            href={`/house/${house.id}`}
+            href={`/houses/${house.id}`}
             className="text-blue-500 block p-0"
           >
             View details
