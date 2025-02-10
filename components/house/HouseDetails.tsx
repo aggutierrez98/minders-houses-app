@@ -18,7 +18,7 @@ export default function HouseDetails({ house }: HouseDetailsCardProps) {
   return (
     <div className="container mx-auto px-4 py-8">
       <Button variant="link" size="sm" className="text-lg p-0" asChild>
-        <Link href="/" className="flex items-center">
+        <Link href="/houses" className="flex items-center">
           <ArrowLeft className="mr-2 h-10 w-10" />
           Back to houses
         </Link>

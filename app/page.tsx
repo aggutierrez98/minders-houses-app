@@ -7,8 +7,8 @@ import {
   FlaskRoundIcon as Flask,
   Wand2,
   User,
-  // Scroll,
   Apple,
+  MessageCircleHeart,
 } from "lucide-react";
 
 export default function HomePage() {
@@ -29,7 +29,7 @@ export default function HomePage() {
           title="Houses"
           description={texts.houses}
           icon={Home}
-          href="/"
+          href="/houses"
         />
         <CategoryCard
           title="Elixirs"
@@ -55,12 +55,12 @@ export default function HomePage() {
           icon={Apple}
           href="/ingredients"
         />
-        {/* <CategoryCard
-          title="Magical Creatures"
-          description="Discover fantastic beasts and where to find them."
-          icon={Scroll}
-          href="#"
-        /> */}
+        <CategoryCard
+          title="Feedback"
+          description={texts.feedback}
+          icon={MessageCircleHeart}
+          href="/feedback"
+        />
       </div>
     </div>
   );
