@@ -36,8 +36,6 @@ export async function getIngredients(): Promise<GetIngredientsResponse> {
         const res = await fetch(
             `${process.env.NEXT_PUBLIC_WIZARD_API_URL}/Ingredients`
         );
-        await new Promise((resolve) => setTimeout(resolve, 1500));
-
         const ingredients: Ingredient[] = await res.json();
 
         if (!res.ok) throw new Error(`Failed fetching ingredients data ${res}`)

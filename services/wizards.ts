@@ -36,7 +36,6 @@ export async function getWizards(): Promise<GetWizardsResponse> {
         const res = await fetch(
             `${process.env.NEXT_PUBLIC_WIZARD_API_URL}/Wizards`
         );
-        await new Promise((resolve) => setTimeout(resolve, 1500));
 
         const wizards: Wizard[] = await res.json();
 

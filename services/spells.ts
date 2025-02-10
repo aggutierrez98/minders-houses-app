@@ -36,7 +36,6 @@ export async function getSpells(): Promise<GetSpellsResponse> {
         const res = await fetch(
             `${process.env.NEXT_PUBLIC_WIZARD_API_URL}/Spells`
         );
-        await new Promise((resolve) => setTimeout(resolve, 1500));
 
         const spells: Spell[] = await res.json();
 

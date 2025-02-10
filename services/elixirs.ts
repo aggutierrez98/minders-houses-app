@@ -14,7 +14,6 @@ interface GetElixirsResponse {
 
 export async function getElixirs(): Promise<GetElixirsResponse> {
     try {
-        await new Promise((resolve) => setTimeout(resolve, 1500))
 
         const res = await fetch(`${apiUrl}/Elixirs`)
         const elixir = await res.json()
@@ -32,7 +31,6 @@ export async function getElixirs(): Promise<GetElixirsResponse> {
 
 export async function getElixirById(id: string): Promise<GetElixirResponse> {
     try {
-        await new Promise((resolve) => setTimeout(resolve, 1000))
 
         const res = await fetch(`${apiUrl}/Elixirs/${id}`)
         const elixirs = await res.json()

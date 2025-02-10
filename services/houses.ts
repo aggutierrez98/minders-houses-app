@@ -36,7 +36,6 @@ export async function getHouses(): Promise<GetHousesResponse> {
         const res = await fetch(
             `${process.env.NEXT_PUBLIC_WIZARD_API_URL}/Houses`
         );
-        await new Promise((resolve) => setTimeout(resolve, 1500));
 
         const houses: House[] = await res.json();
 
