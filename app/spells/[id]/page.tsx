@@ -8,10 +8,8 @@ interface SpellPageProps {
 
 export default async function SpellPage({ params }: SpellPageProps) {
   const { id } = await params;
-  const { data: spell, message } = await getSpell({ id });
-
-  if (message) return <h2>{message}</h2>;
-  if (spell) return <SpellDetails spell={spell} />;
+  const spell = await getSpell({ id });
+  return <SpellDetails spell={spell} />;
 }
 
 export async function generateStaticParams() {

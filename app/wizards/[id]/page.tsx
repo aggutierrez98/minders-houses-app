@@ -8,10 +8,8 @@ interface WizardPageProps {
 
 export default async function WizardPage({ params }: WizardPageProps) {
   const { id } = await params;
-  const { data: wizard, message } = await getWizard({ id });
-
-  if (message) return <h2>{message}</h2>;
-  if (wizard) return <WizardDetails wizard={wizard} />;
+  const wizard = await getWizard({ id });
+  return <WizardDetails wizard={wizard} />;
 }
 
 export async function generateStaticParams() {

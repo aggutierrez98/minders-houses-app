@@ -1,3 +1,5 @@
+"use client";
+
 import { CategoryCard } from "@/components/CategoryCard";
 import { WizardHat } from "@/components/WizardHat";
 import { texts } from "@/lib/texts";

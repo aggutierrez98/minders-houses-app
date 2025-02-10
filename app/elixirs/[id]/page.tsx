@@ -8,10 +8,8 @@ interface ElixirPageProps {
 
 export default async function ElixirPage({ params }: ElixirPageProps) {
   const { id } = await params;
-  const { data: elixir, message } = await getElixirById(id);
-
-  if (message) return <h2>{message}</h2>;
-  if (elixir) return <ElixirDetails elixir={elixir} />;
+  const elixir = await getElixirById(id);
+  return <ElixirDetails elixir={elixir} />;
 }
 
 export async function generateStaticParams() {

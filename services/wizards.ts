@@ -1,51 +1,24 @@
 "use server"
-
 import { Wizard } from "@/lib/types/wizards";
 
+export async function getWizard(params: { id: string }): Promise<Wizard> {
 
-interface GetWizardsResponse {
-    data: Wizard[] | null,
-    message: string | null
+    const res = await fetch(
+        `${process.env.NEXT_PUBLIC_WIZARD_API_URL}/Wizards/${params.id}`
+    );
+    const wizard: Wizard = await res.json();
+    if (!res.ok) throw new Error(`Failed fetching wizard data ${res}`)
+    return wizard
+
 }
 
-interface GetWizardResponse {
-    data: Wizard | null,
-    message: string | null
-}
+export async function getWizards(): Promise<Wizard[]> {
+    const res = await fetch(
+        `${process.env.NEXT_PUBLIC_WIZARD_API_URL}/Wizards`
+    );
 
-export async function getWizard(params: { id: string }): Promise<GetWizardResponse> {
+    const wizards: Wizard[] = await res.json();
 
-    try {
-        const res = await fetch(
-            `${process.env.NEXT_PUBLIC_WIZARD_API_URL}/Wizards/${params.id}`
-        );
-        const wizard: Wizard = await res.json();
-        if (!res.ok) throw new Error(`Failed fetching wizard data ${res}`)
-        return {
-            data: wizard,
-            message: null
-        };
-    } catch (error) {
-        console.error(error);
-        return { message: "Failed to load wizards", data: null }
-    }
-}
-
-export async function getWizards(): Promise<GetWizardsResponse> {
-    try {
-        const res = await fetch(
-            `${process.env.NEXT_PUBLIC_WIZARD_API_URL}/Wizards`
-        );
-
-        const wizards: Wizard[] = await res.json();
-
-        if (!res.ok) throw new Error(`Failed fetching wizards data ${res}`)
-        return {
-            data: wizards,
-            message: null
-        };
-    } catch (error) {
-        console.error(error);
-        return { message: "Failed to load wizards", data: null }
-    }
+    if (!res.ok) throw new Error(`Failed fetching wizards data ${res}`)
+    return wizards
 }
