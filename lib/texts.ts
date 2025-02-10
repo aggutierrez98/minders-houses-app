@@ -5,4 +5,5 @@ export const texts = {
     spells: "Master the art of spellcasting with our comprehensive guide.",
     wizards: "Meet famous witches and wizards from the magical world.",
     ingredients: "Explore magical ingredients used in potions and spells.",
+    feedback: "Give us your opinion or suggestion about the application."
 }

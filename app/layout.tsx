@@ -5,6 +5,7 @@ import { geistMono, geistSans } from "./fonts";
 import AmplitudeContextProvider from "@/components/context/AmplitudeContext";
 import { AuthProvider } from "@/components/context/AuthContext";
 import { NavBar } from "@/components/NavBar";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -31,6 +32,7 @@ export default function RootLayout({
             >
               <NavBar />
               <main>{children}</main>
+              <Toaster />
             </ThemeProvider>
           </AuthProvider>
         </AmplitudeContextProvider>
