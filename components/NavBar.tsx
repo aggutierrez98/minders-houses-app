@@ -68,7 +68,7 @@ export function NavBar() {
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                         onClick={() => {
                           trackAmplitudeEvent({
-                            event_type: `LinkClick on houses`,
+                            event_type: `Navigate to houses`,
                           });
                         }}
                       >
@@ -87,7 +87,7 @@ export function NavBar() {
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                         onClick={() => {
                           trackAmplitudeEvent({
-                            event_type: `LinkClick on elixirs`,
+                            event_type: `Navigate to elixirs`,
                           });
                         }}
                       >
@@ -105,7 +105,7 @@ export function NavBar() {
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                         onClick={() => {
                           trackAmplitudeEvent({
-                            event_type: `LinkClick on wizards`,
+                            event_type: `Navigate to wizards`,
                           });
                         }}
                       >
@@ -123,7 +123,7 @@ export function NavBar() {
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                         onClick={() => {
                           trackAmplitudeEvent({
-                            event_type: `LinkClick on spells`,
+                            event_type: `Navigate to spells`,
                           });
                         }}
                       >
@@ -141,7 +141,7 @@ export function NavBar() {
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                         onClick={() => {
                           trackAmplitudeEvent({
-                            event_type: `LinkClick on ingredients`,
+                            event_type: `Navigate to ingredients`,
                           });
                         }}
                       >

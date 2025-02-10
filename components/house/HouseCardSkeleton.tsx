@@ -18,5 +18,3 @@ export function HouseCardSkeleton() {
     </Card>
   );
 }
-
-// 403*188

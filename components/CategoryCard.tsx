@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { LucideIcon } from "lucide-react";
+import useAmplitude from "@/hooks/useAmplitude";
 
 interface CategoryCardProps {
   title: string;
@@ -15,8 +16,17 @@ export function CategoryCard({
   icon: Icon,
   href,
 }: CategoryCardProps) {
+  const { trackAmplitudeEvent } = useAmplitude();
+
   return (
-    <Link href={href}>
+    <Link
+      href={href}
+      onClick={() => {
+        trackAmplitudeEvent({
+          event_type: `LinkClick on ${title} section`,
+        });
+      }}
+    >
       <Card className="h-full hover:shadow-lg transition-shadow">
         <CardHeader>
           <Icon className="w-8 h-8 mb-2" />

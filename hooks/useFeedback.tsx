@@ -4,6 +4,7 @@ import { submitFeedback } from "@/services/feedback";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import useAmplitude from "./useAmplitude";
 
 const feedbackSchema = z.object({
   feedbackType: z.enum(["General", "Bug", "DataError", "Suggestion"], {
@@ -29,6 +30,7 @@ export const useFeedback = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { trackAmplitudeEvent } = useAmplitude();
 
   async function onSubmit(data: FeedbackFormValues) {
     setIsSubmitting(true);
@@ -46,6 +48,14 @@ export const useFeedback = () => {
       toast({
         title: "Feedback Submitted",
         description: "Thank you for your feedback!",
+      });
+
+      trackAmplitudeEvent({
+        event_type: `Feedback sent`,
+        event_properties: {
+          feedbackType: data.feedbackType,
+          entityId: data.entityId,
+        },
       });
       form.reset();
     } else {
