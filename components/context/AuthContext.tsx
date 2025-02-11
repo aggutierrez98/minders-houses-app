@@ -8,7 +8,7 @@ import { usePathname, useRouter } from "next/navigation";
 interface AuthContextType {
   isLoggedIn: boolean;
   userId: string | null;
-  login: (email: string, password: string) => string | null;
+  login: (email: string, password: string) => Promise<string | null>;
   logout: () => void;
 }
 
@@ -33,10 +33,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   }, [pathname, router]);
 
-  const login = (email: string, password: string) => {
+  const login = async (email: string, password: string) => {
     // Simulate authentication
     if (email && password) {
-      const newUserId = Math.random().toString(36).substr(2, 9);
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      const newUserId = Math.random().toString(36).substring(2, 9);
       Storage.setItem("userId", newUserId);
       setIsLoggedIn(true);
       setUserId(newUserId);

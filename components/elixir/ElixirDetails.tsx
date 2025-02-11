@@ -14,7 +14,7 @@ export default function ElixirDetails({ elixir }: ElixirDetailsCardProps) {
   return (
     <div className="container mx-auto px-4 py-8">
       <Button variant="link" size="sm" className="text-lg p-0" asChild>
-        <Link href="/elixir" className="flex items-center">
+        <Link href="/elixirs" className="flex items-center">
           <ArrowLeft className="mr-2 h-10 w-10" />
           Back to elixirs
         </Link>

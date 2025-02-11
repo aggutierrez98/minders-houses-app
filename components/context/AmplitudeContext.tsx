@@ -31,7 +31,7 @@ export interface AmplitudeContextProps {
 
 export const AmplitudeContext = createContext({} as AmplitudeContextProps);
 
-const AmplitudeContextProvider = ({
+export const AmplitudeProvider = ({
   children,
 }: {
   children: React.ReactNode;
@@ -65,5 +65,3 @@ const AmplitudeContextProvider = ({
     </AmplitudeContext.Provider>
   );
 };
-
-export default AmplitudeContextProvider;

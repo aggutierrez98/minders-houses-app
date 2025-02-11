@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { geistMono, geistSans } from "./fonts";
-import AmplitudeContextProvider from "@/components/context/AmplitudeContext";
+import { ThemeProvider } from "@/components/context/ThemeContext";
+import { AmplitudeProvider } from "@/components/context/AmplitudeContext";
 import { AuthProvider } from "@/components/context/AuthContext";
 import { NavBar } from "@/components/NavBar";
 import { Toaster } from "@/components/ui/toaster";
@@ -22,7 +22,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.className} ${geistMono.className} antialiased bg-background text-foreground`}
       >
-        <AmplitudeContextProvider>
+        <AmplitudeProvider>
           <AuthProvider>
             <ThemeProvider
               attribute="class"
@@ -35,7 +35,7 @@ export default function RootLayout({
               <Toaster />
             </ThemeProvider>
           </AuthProvider>
-        </AmplitudeContextProvider>
+        </AmplitudeProvider>
       </body>
     </html>
   );
