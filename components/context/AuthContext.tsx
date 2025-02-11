@@ -19,7 +19,7 @@ export const AuthContext = createContext<AuthContextType | undefined>(
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userId, setUserId] = useState<string | null>(null);
-  const { trackAmplitudeEvent, reset } = useAmplitude();
+  const { trackAmplitudeEvent, reset, identify } = useAmplitude();
   const router = useRouter();
   const pathname = usePathname();
 
@@ -41,6 +41,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       Storage.setItem("userId", newUserId);
       setIsLoggedIn(true);
       setUserId(newUserId);
+      identify(newUserId);
       trackAmplitudeEvent({ event_type: `User ${newUserId} Logged in` }, {});
       return newUserId;
     }
