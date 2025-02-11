@@ -41,6 +41,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       Storage.setItem("userId", newUserId);
       setIsLoggedIn(true);
       setUserId(newUserId);
+      trackAmplitudeEvent({ event_type: `User ${newUserId} Logged in` }, {});
       return newUserId;
     }
     return null;

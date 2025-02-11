@@ -1,5 +1,4 @@
 "use server"
-
 import { House } from "@/lib/types/houses";
 
 export async function getHouse(params: { id: string }): Promise<House> {
